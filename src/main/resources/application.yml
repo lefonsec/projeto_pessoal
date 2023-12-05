@@ -1,0 +1,17 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb   # Define a URL do banco de dados H2 em memória
+    username: sa              # Usuário padrão
+    password:                 # Senha padrão
+
+  h2:
+    console:
+      enabled: true          # Habilita o console H2
+      path: /h2-console      # Define o caminho do console H2
+
+  jpa:
+    hibernate:
+      ddl-auto: update 
