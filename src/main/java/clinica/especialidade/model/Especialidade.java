@@ -28,7 +28,8 @@ public class Especialidade implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name = "id")
+	private Long key;
 
 	@Column(nullable = false, length = 150)
 	private String nome;
@@ -48,20 +49,20 @@ public class Especialidade implements Serializable {
 	public Especialidade() {
 	}
 
-	public Especialidade(Long id, String nome, String sobrenome, String email, Modalidade modalidade) {
-		this.id = id;
+	public Especialidade(Long key, String nome, String sobrenome, String email, Modalidade modalidade) {
+		this.key = key;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.email = email;
 		this.modalidade = modalidade;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getKey() {
+		return key;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setKey(Long key) {
+		this.key = key;
 	}
 
 	public String getNome() {
@@ -107,7 +108,7 @@ public class Especialidade implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, id);
+		return Objects.hash(email, key);
 	}
 
 	@Override
@@ -119,7 +120,7 @@ public class Especialidade implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Especialidade other = (Especialidade) obj;
-		return Objects.equals(email, other.email) && Objects.equals(id, other.id);
+		return Objects.equals(email, other.email) && Objects.equals(key, other.key);
 	}
 
 }
